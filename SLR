@@ -1,0 +1,26 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Generate some sample data
+X = np.array([[1], [2], [3], [4], [5]])  # Feature: single feature for simplicity
+y = np.array([1, 3, 2, 5, 4])           # Target: corresponding target values
+
+# Create and train the linear regression model
+model = LinearRegression()
+model.fit(X, y)
+
+# Make predictions
+y_pred = model.predict(X)
+
+# Plot the results
+plt.scatter(X, y, color='blue', label='Actual data')
+plt.plot(X, y_pred, color='red', label='Fitted line')
+plt.xlabel('Feature')
+plt.ylabel('Target')
+plt.legend()
+plt.show()
+
+# Print the coefficients
+print(f"Coefficient: {model.coef_[0]}")
+print(f"Intercept: {model.intercept_}")
